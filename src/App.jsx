@@ -6,7 +6,7 @@ import { nanoid } from 'nanoid'
 import Button from './components/Button/Button'
 import Modal from './components/Modal/Modal'
 import ContactsList from './components/Contacts/ContactsList'
-
+import Search from './components/Search/Search'
 
 
 class App extends Component{
@@ -17,8 +17,15 @@ class App extends Component{
     secondName: "",
     email: "",
     tell: "",
-    contacts: []
+    contacts: [],
+    search: "",
   }
+
+  handleSearch = (e) => {
+    this.setState({
+      search: e.target.value
+    })
+  } 
 
   componentDidMount(){
     const saveDate = localStorage.getItem("contacts")
@@ -92,7 +99,12 @@ class App extends Component{
 
 
  render(){
-  const {firstName, secondName, email, tell, contacts} = this.state
+  const {firstName, secondName, email, tell, contacts, search} = this.state
+
+  const filteredContacts = contacts.filter((contact) => 
+  contact.firstName.toLowerCase().includes(search.toLowerCase())
+  )
+
   return(
     <div>
      <Button onClick={this.handleToggleModal}/>
@@ -107,9 +119,12 @@ class App extends Component{
       onSubmit={this.handleSubmit}
       />
      )}
-
+      <Search
+      onSearch={this.handleSearch}
+      value={search}
+      />
      <ContactsList 
-     contacts={contacts}
+     contacts={filteredContacts}
      onDelete={this.handleDelete}
      />
     </div>

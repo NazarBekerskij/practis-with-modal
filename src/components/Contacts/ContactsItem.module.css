@@ -1,0 +1,61 @@
+
+.card {
+  background-color: #1e1b30;
+  padding: 20px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+  border: 1px solid #39334f;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #8957d6;
+}
+
+.name {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 8px;
+  overflow-wrap: anywhere;
+}
+
+.phone {
+  color: #e5e0f0;
+  font-size: 14px;
+  margin: 0;
+}
+
+.email {
+  color: #b8a9d4;
+  font-size: 14px;
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.deleteBtn {
+  width: 100%;
+  padding: 12px;
+  margin-top: auto;
+  background-color: #482837;
+  color: #ff9daa;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.deleteBtn:hover {
+  background-color: #713448;
+}
+
+.deleteBtn:focus-visible {
+  outline: 2px solid #ff9daa;
+  outline-offset: 3px;
+}
